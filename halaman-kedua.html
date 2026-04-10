@@ -13,7 +13,7 @@
             margin: 0; padding: 0; background-color: #0f1115; color: white; overflow-x: hidden;
         }
 
-        /* --- NAVIGASI (MENYAMAKAN DENGAN HALAMAN LAIN) --- */
+        /* --- NAVIGASI --- */
         .nav-header {
             padding: 25px 5%;
             display: flex;
@@ -30,27 +30,15 @@
         .btn-merah { background-color: #d92027; padding: 10px 25px; border-radius: 20px; color: white !important; font-weight: 800; }
         .btn-merah:hover { background-color: #a7181d; transform: scale(1.05); }
 
-        /* --- MASONRY GALLERY (MEGA GALERI) --- */
-        .gallery-container {
-            padding: 40px 5%;
-        }
-
-        .masonry-gallery {
-            column-count: 4; 
-            column-gap: 15px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        /* --- MASONRY GALLERY --- */
+        .gallery-container { padding: 40px 5%; }
+        .masonry-gallery { column-count: 4; column-gap: 15px; max-width: 1300px; margin: 0 auto; }
         
-        /* --- KUNCI ANIMASI POP UP SMOOTH --- */
         .photo-box {
-            break-inside: avoid; 
-            margin-bottom: 15px;
+            break-inside: avoid; margin-bottom: 15px;
             border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;
-            /* Persiapan Animasi */
-            opacity: 0; 
-            transform: scale(0.85) translateY(30px); /* Mulai dari kecil dan agak di bawah */
-            animation: popSmooth 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; /* Gerakan mulus */
+            opacity: 0; transform: scale(0.85) translateY(30px); 
+            animation: popSmooth 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
         
         @keyframes popSmooth {
@@ -58,18 +46,15 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .photo-box img { 
-            width: 100%; height: auto; display: block; transition: transform 0.4s ease, filter 0.4s ease; 
-        }
+        .photo-box img { width: 100%; height: auto; display: block; transition: 0.4s ease, filter 0.4s ease; }
         .photo-box:hover img { transform: scale(1.05); filter: brightness(0.7); }
 
-        /* --- POPUP PEMBESAR FOTO (LIGHTBOX) --- */
+        /* --- LIGHTBOX --- */
         .photo-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95); z-index: 1000; display: none; 
             justify-content: center; align-items: center;
         }
-        
         .modal-nav {
             position: absolute; top: 50%; transform: translateY(-50%);
             color: white; font-size: 3rem; font-weight: bold; cursor: pointer;
@@ -79,49 +64,18 @@
         .modal-nav:hover { color: #d92027; }
         .left-nav { left: 30px; }
         .right-nav { right: 30px; }
+        .photo-modal img { max-width: 80%; max-height: 90vh; border-radius: 8px; object-fit: contain; transition: opacity 0.3s ease; }
+        .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 2.5rem; cursor: pointer; font-weight: bold; z-index: 1002; }
 
-        .photo-modal img {
-            max-width: 80%; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            object-fit: contain; transition: opacity 0.3s ease; 
-        }
-
-        .close-btn {
-            position: absolute; top: 20px; right: 40px; color: white; font-size: 2.5rem;
-            cursor: pointer; font-weight: bold; transition: 0.3s; z-index: 1002;
-        }
-        .close-btn:hover { color: #d92027; }
-
-        /* --- PENGATURAN HP & TABLET --- */
-        @media (max-width: 1024px) {
-            .masonry-gallery { column-count: 3; } 
-        }
+        @media (max-width: 1024px) { .masonry-gallery { column-count: 3; } }
         @media (max-width: 768px) {
-            /* Perbaikan Navigasi agar Sejajar Sempurna seperti di About */
-            .nav-header { 
-                flex-direction: column; 
-                align-items: center; 
-                justify-content: center;
-                padding: 20px 5%; /* Menyamakan padding dengan About */
-                gap: 0; /* Menghilangkan gap agar tidak mendorong teks terlalu jauh */
-            }
-
-            .menu { 
-                display: flex;
-                flex-wrap: wrap; 
-                justify-content: center; 
-                align-items: center; 
-                gap: 15px 20px; /* Jarak antar kata disamakan persis */
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            /* Memastikan logo tidak mengganggu ruang */
+            .nav-header { flex-direction: column; align-items: center; justify-content: center; padding: 20px 5%; gap: 0; }
+            .menu { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px 20px; width: 100%; margin: 0 auto; }
             .logo { display: none; }
-            
-            /* Sembunyikan Explore di Mobile */
             .menu a.btn-merah { display: none !important; }
-
-            /* ... sisa kode media query lainnya (gallery, dll) tetap sama ... */
+            .modal-nav { font-size: 2rem; }
+            .left-nav { left: 5px; }
+            .right-nav { right: 5px; }
         }
     </style>
 </head>
@@ -139,8 +93,7 @@
     </header>
 
     <section class="gallery-container">
-        <div class="masonry-gallery" id="mega-gallery">
-            </div>
+        <div class="masonry-gallery" id="mega-gallery"></div>
     </section>
 
     <div class="photo-modal" id="photo-modal">
@@ -151,138 +104,82 @@
     </div>
 
     <script>
-        // 1. DATA JUMLAH FOTO DARI MASING-MASING KATEGORI
         const categories = [
-            { name: 'event', prefix: 'Foto-event', count: 40 },
-            { name: 'corporate', prefix: 'Foto-corporate', count: 60 },
-            { name: 'sport', prefix: 'Foto-sport', count: 50 },
+            { name: 'event', prefix: 'Foto-event', count: 35 },
+            { name: 'corporate', prefix: 'Foto-corporate', count: 63 },
+            { name: 'sport', prefix: 'Foto-sport', count: 51 },
             { name: 'competition', prefix: 'Foto-competition', count: 8 },
-            { name: 'birthday', prefix: 'Foto-birthday', count: 20 },
-            { name: 'wedding', prefix: 'Foto-wedding', count: 6 },
-            { name: 'graduation', prefix: 'Foto-graduation', count: 9 },
+            { name: 'birthday', prefix: 'Foto-birthday', count: 23 },
+            { name: 'wedding', prefix: 'Foto-wedding', count: 8 },
+            { name: 'graduation', prefix: 'Foto-graduation', count: 7 },
             { name: 'other', prefix: 'Foto-other', count: 15 }
         ];
 
         const megaGallery = document.getElementById('mega-gallery');
-        
-        // Mengumpulkan semua link foto ke dalam satu wadah
         let allImages = [];
+
+        // PERBAIKAN DI SINI: Menghapus "Galery-Foto/" agar sesuai dengan GitHub
         categories.forEach(category => {
             for (let i = 1; i <= category.count; i++) {
-                allImages.push(`Galery-Foto/${category.name}/${category.prefix}${i}.jpg`);
+                allImages.push(`${category.name}/${category.prefix}${i}.jpg`);
             }
         });
 
-        // MESIN PENGACAK FOTO (SHUFFLE)
-        // Agar foto Event, Corporate, dll tercampur rata secara elegan
+        // SHUFFLE
         for (let i = allImages.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [allImages[i], allImages[j]] = [allImages[j], allImages[i]];
         }
 
-        // MESIN PEMBUAT HTML DENGAN JEDA WAKTU ACAK (RANDOM DELAY)
+        // RENDER HTML
         let allImagesHTML = '';
         allImages.forEach((imagePath, index) => {
-            // Waktu tunda acak antara 0 sampai 1.2 detik
             let randomDelay = (Math.random() * 1.2).toFixed(2);
-            
             allImagesHTML += `
                 <div class="photo-box" style="animation-delay: ${randomDelay}s;">
                     <img src="${imagePath}" alt="Portofolio ${index + 1}" loading="lazy">
                 </div>
             `;
         });
-
         megaGallery.innerHTML = allImagesHTML;
 
-        // 3. MESIN UNTUK LIGHTBOX (POPUP PEMBESAR FOTO)
-        // Dijalankan setelah semua foto berhasil dimuat
-        const photoBoxes = document.querySelectorAll('.photo-box img'); 
-        const photoModal = document.getElementById('photo-modal');
-        const photoModalImg = document.getElementById('photo-modal-img');
-        const closePhotoModalBtn = document.getElementById('close-photo-modal');
-        const prevBtn = document.getElementById('prev-photo');
-        const nextBtn = document.getElementById('next-photo');
-        
-        let currentPhotoIndex = 0; 
+        // LIGHTBOX ENGINE
+        setTimeout(() => {
+            const photoBoxes = document.querySelectorAll('.photo-box img'); 
+            const photoModal = document.getElementById('photo-modal');
+            const photoModalImg = document.getElementById('photo-modal-img');
+            let currentPhotoIndex = 0; 
 
-        photoBoxes.forEach((img, index) => {
-            img.parentElement.addEventListener('click', function() {
-                currentPhotoIndex = index; 
-                photoModalImg.src = img.src; 
-                photoModal.style.display = 'flex'; 
+            photoBoxes.forEach((img, index) => {
+                img.parentElement.addEventListener('click', function() {
+                    currentPhotoIndex = index; 
+                    photoModalImg.src = img.src; 
+                    photoModal.style.display = 'flex'; 
+                });
             });
-        });
 
-        function gantiFoto(index) {
-            if (index < 0) {
-                currentPhotoIndex = photoBoxes.length - 1; 
-            } else if (index >= photoBoxes.length) {
-                currentPhotoIndex = 0; 
-            } else {
-                currentPhotoIndex = index;
+            function gantiFoto(index) {
+                if (index < 0) currentPhotoIndex = photoBoxes.length - 1; 
+                else if (index >= photoBoxes.length) currentPhotoIndex = 0; 
+                else currentPhotoIndex = index;
+                photoModalImg.style.opacity = 0.5;
+                setTimeout(() => { photoModalImg.src = photoBoxes[currentPhotoIndex].src; photoModalImg.style.opacity = 1; }, 150);
             }
-            
-            photoModalImg.style.opacity = 0.5;
-            setTimeout(() => {
-                photoModalImg.src = photoBoxes[currentPhotoIndex].src;
-                photoModalImg.style.opacity = 1;
-            }, 150);
-        }
 
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            gantiFoto(currentPhotoIndex + 1);
-        });
+            document.getElementById('next-photo').onclick = (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex + 1); };
+            document.getElementById('prev-photo').onclick = (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex - 1); };
+            document.getElementById('close-photo-modal').onclick = () => photoModal.style.display = 'none';
+            window.onclick = (e) => { if(e.target === photoModal) photoModal.style.display = 'none'; };
 
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            gantiFoto(currentPhotoIndex - 1);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (photoModal.style.display === 'flex') { 
-                if (e.key === 'ArrowRight') gantiFoto(currentPhotoIndex + 1);
-                if (e.key === 'ArrowLeft') gantiFoto(currentPhotoIndex - 1);
-                if (e.key === 'Escape') photoModal.style.display = 'none'; 
-            }
-        });
-
-        closePhotoModalBtn.addEventListener('click', () => {
-            photoModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if(e.target === photoModal) {
-                photoModal.style.display = 'none';
-            }
-        });
-
-        // 4. MESIN SENSOR GESER (SWIPE) UNTUK HP
-        let sentuhanAwal = 0;
-        let sentuhanAkhir = 0;
-
-        photoModal.addEventListener('touchstart', function(event) {
-            sentuhanAwal = event.changedTouches[0].screenX;
-        }, {passive: true});
-
-        photoModal.addEventListener('touchend', function(event) {
-            sentuhanAkhir = event.changedTouches[0].screenX;
-            prosesGeser();
-        }, {passive: true});
-
-        function prosesGeser() {
-            const jarakMinimal = 50; 
-            const jarakGeser = sentuhanAwal - sentuhanAkhir;
-
-            if (jarakGeser > jarakMinimal) {
-                // Geser ke kiri (Next)
-                gantiFoto(currentPhotoIndex + 1);
-            } else if (jarakGeser < -jarakMinimal) {
-                // Geser ke kanan (Prev)
-                gantiFoto(currentPhotoIndex - 1);
-            }
-        }
+            // SWIPE ENGINE
+            let sAwal = 0;
+            photoModal.ontouchstart = (e) => sAwal = e.changedTouches[0].screenX;
+            photoModal.ontouchend = (e) => {
+                let jarak = sAwal - e.changedTouches[0].screenX;
+                if (jarak > 50) gantiFoto(currentPhotoIndex + 1);
+                else if (jarak < -50) gantiFoto(currentPhotoIndex - 1);
+            };
+        }, 100);
     </script>
 </body>
 </html>
