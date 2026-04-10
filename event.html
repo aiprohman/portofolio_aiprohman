@@ -27,7 +27,7 @@
         }
         .back-btn:hover { color: #d92027; }
 
-        /* --- LAYAR BESAR (HERO SECTION KHUSUS VIDEO) --- */
+        /* --- HERO SECTION --- */
         .hero-showcase {
             height: 75vh; background-size: cover; background-position: center;
             position: relative; display: flex; align-items: flex-end; padding: 50px 5%;
@@ -71,7 +71,6 @@
             cursor: pointer; position: relative; transition: 0.3s; border: 2px solid transparent;
         }
         .video-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .video-card:hover { transform: scale(1.05); z-index: 10; }
         .video-card.active { border: 3px solid white; transform: scale(1.05); z-index: 10; }
 
         /* --- MASONRY GALLERY --- */
@@ -87,14 +86,25 @@
             justify-content: center; align-items: center;
         }
         #player { width: 90%; max-width: 1000px; aspect-ratio: 16/9; border-radius: 10px; border: none; }
-        .photo-modal img { max-width: 80%; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+        .photo-modal img { max-width: 80%; max-height: 90vh; border-radius: 8px; object-fit: contain; transition: opacity 0.3s; }
         .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 2.5rem; cursor: pointer; z-index: 1002; }
+
+        .modal-nav {
+            position: absolute; top: 50%; transform: translateY(-50%); color: white;
+            font-size: 3rem; font-weight: bold; cursor: pointer; user-select: none;
+            padding: 20px; text-shadow: 0 5px 15px rgba(0,0,0,0.8); z-index: 1001;
+        }
+        .left-nav { left: 30px; }
+        .right-nav { right: 30px; }
 
         @media (max-width: 768px) {
             .hero-showcase { height: 60vh; }
             .hero-title { font-size: 1.8rem; }
             .video-card { width: 110px; height: 65px; }
             .masonry-gallery { column-count: 3; column-gap: 5px; }
+            .modal-nav { font-size: 2rem; }
+            .left-nav { left: 5px; }
+            .right-nav { right: 5px; }
         }
     </style>
 </head>
@@ -198,7 +208,9 @@
 
     <div class="photo-modal" id="photo-modal">
         <span class="close-btn" id="close-photo-modal">&times;</span>
+        <span class="modal-nav left-nav" id="prev-photo">&#10094;</span> 
         <img src="" id="photo-modal-img">
+        <span class="modal-nav right-nav" id="next-photo">&#10095;</span> 
     </div>
 
     <script>
@@ -231,15 +243,15 @@
             });
         });
 
-        // --- FITUR SWIPE HERO ---
+        // --- SWIPE HERO ---
         let touchStartX = 0;
         mainDisplay.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
         mainDisplay.addEventListener('touchend', e => {
             let touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 50) { // Swipe Kiri
+            if (touchStartX - touchEndX > 50) { 
                 currentVideoIndex = (currentVideoIndex + 1) % videoCards.length;
                 gantiVideoUtama(currentVideoIndex);
-            } else if (touchEndX - touchStartX > 50) { // Swipe Kanan
+            } else if (touchEndX - touchStartX > 50) { 
                 currentVideoIndex = (currentVideoIndex - 1 + videoCards.length) % videoCards.length;
                 gantiVideoUtama(currentVideoIndex);
             }
@@ -255,16 +267,45 @@
             player.src = "";
         });
 
+        // --- LIGHTBOX GALLERY (DENGAN NAVIGASI < >) ---
         const photoModal = document.getElementById('photo-modal');
         const photoModalImg = document.getElementById('photo-modal-img');
-        document.querySelectorAll('.photo-box img').forEach(img => {
+        const photoBoxes = document.querySelectorAll('.photo-box img');
+        let currentPhotoIndex = 0;
+
+        photoBoxes.forEach((img, index) => {
             img.addEventListener('click', () => {
+                currentPhotoIndex = index;
                 photoModalImg.src = img.src;
                 photoModal.style.display = 'flex';
             });
         });
 
+        function gantiFoto(index) {
+            if (index < 0) currentPhotoIndex = photoBoxes.length - 1; 
+            else if (index >= photoBoxes.length) currentPhotoIndex = 0; 
+            else currentPhotoIndex = index;
+            
+            photoModalImg.style.opacity = 0.5;
+            setTimeout(() => {
+                photoModalImg.src = photoBoxes[currentPhotoIndex].src;
+                photoModalImg.style.opacity = 1;
+            }, 150);
+        }
+
+        document.getElementById('prev-photo').addEventListener('click', (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex - 1); });
+        document.getElementById('next-photo').addEventListener('click', (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex + 1); });
         document.getElementById('close-photo-modal').addEventListener('click', () => photoModal.style.display = 'none');
+
+        // SWIPE GALLERY FOTO
+        let photoTouchX = 0;
+        photoModal.addEventListener('touchstart', e => photoTouchX = e.changedTouches[0].screenX, {passive: true});
+        photoModal.addEventListener('touchend', e => {
+            let touchEnd = e.changedTouches[0].screenX;
+            if (photoTouchX - touchEnd > 50) gantiFoto(currentPhotoIndex + 1);
+            else if (touchEnd - photoTouchX > 50) gantiFoto(currentPhotoIndex - 1);
+        }, {passive: true});
+
         window.onclick = e => { if(e.target == videoModal || e.target == photoModal) { videoModal.style.display = 'none'; photoModal.style.display = 'none'; player.src = ""; } };
     </script>
 </body>
