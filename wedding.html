@@ -32,7 +32,7 @@
             height: 75vh; background-size: cover; background-position: center;
             position: relative; display: flex; align-items: flex-end; padding: 50px 5%;
             transition: background-image 0.3s ease-in-out; 
-            background-image: url('Galery-Foto/wedding/Foto-wedding-cover1.jpg'); 
+            background-image: url('wedding/Foto-wedding-cover1.jpg'); 
         }
         .hero-showcase::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -77,16 +77,12 @@
         .video-card.active { border: 3px solid white; transform: scale(1.05); z-index: 10; }
         .video-card.active img { opacity: 0.7; }
 
-        /* --- BAGIAN 2: MASONRY GALLERY (PINTEREST STYLE) --- */
+        /* --- BAGIAN 2: MASONRY GALLERY --- */
         .masonry-gallery {
-            column-count: 4; 
-            column-gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
+            column-count: 4; column-gap: 15px; max-width: 1200px; margin: 0 auto;
         }
         .photo-box {
-            break-inside: avoid; 
-            margin-bottom: 15px;
+            break-inside: avoid; margin-bottom: 15px;
             border-radius: 8px; overflow: hidden; cursor: pointer; position: relative;
         }
         .photo-box img { 
@@ -94,29 +90,16 @@
         }
         .photo-box:hover img { transform: scale(1.05); filter: brightness(0.7); }
 
-        /* --- POPUP PEMUTAR VIDEO YOUTUBE --- */
-        .video-modal {
+        /* --- POPUP MODALS --- */
+        .video-modal, .photo-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95); z-index: 1000; display: none; 
             justify-content: center; align-items: center;
         }
         .video-content { width: 90%; max-width: 1000px; position: relative; }
-        
-        #player {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 10px;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            background-color: black;
-        }
-
-        /* --- POPUP PEMBESAR FOTO (LIGHTBOX) --- */
-        .photo-modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95); z-index: 1000; display: none; 
-            justify-content: center; align-items: center;
-        }
+        #player { width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; border: none; background-color: black; }
+        .photo-modal img { max-width: 80%; max-height: 90vh; border-radius: 8px; object-fit: contain; transition: opacity 0.3s ease; }
+        .close-btn { position: absolute; top: 20px; right: 40px; color: white; font-size: 2.5rem; cursor: pointer; font-weight: bold; z-index: 1002; }
         
         .modal-nav {
             position: absolute; top: 50%; transform: translateY(-50%);
@@ -124,78 +107,26 @@
             user-select: none; transition: color 0.3s; z-index: 1001; padding: 20px; 
             text-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
-        .modal-nav:hover { color: #d92027; }
         .left-nav { left: 30px; }
         .right-nav { right: 30px; }
 
-        .photo-modal img {
-            max-width: 80%; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            object-fit: contain; transition: opacity 0.3s ease; 
-        }
-
-        .close-btn {
-            position: absolute; top: 20px; right: 40px; color: white; font-size: 2.5rem;
-            cursor: pointer; font-weight: bold; transition: 0.3s; z-index: 1002;
-        }
-        .close-btn:hover { color: #d92027; }
-
-        /* ========================================================
-           PENGATURAN KHUSUS HP & TABLET (DISAMAKAN SEMUA HALAMAN)
-           ======================================================== */
-        @media (max-width: 1024px) {
-            .masonry-gallery { column-count: 3; } 
-        }
-        
         @media (max-width: 768px) {
             .nav-header { padding: 15px 5%; }
             .logo { font-size: 1.2rem; }
-
-            .hero-showcase { 
-                height: 60vh; 
-                padding-bottom: 50px; 
-                justify-content: flex-start; /* Rata Kiri */
-            }
-            .hero-content { 
-                text-align: left; 
-                display: flex; 
-                flex-direction: column; 
-                align-items: flex-start; 
-                width: 100%;
-            }
-            
+            .hero-showcase { height: 60vh; padding-bottom: 50px; justify-content: flex-start; }
+            .hero-content { text-align: left; display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
             .kategori-tag { font-size: 0.65rem; padding: 5px 15px; margin-bottom: 12px; }
-            
-            /* Anti Teks Terpotong */
-            .hero-title { 
-                font-size: 1.6rem; 
-                line-height: 1.2;  
-                margin-bottom: 12px;
-                text-align: left; 
-                word-wrap: break-word; 
-                overflow-wrap: break-word; 
-            }
+            .hero-title { font-size: 1.6rem; line-height: 1.2; margin-bottom: 12px; text-align: left; word-wrap: break-word; overflow-wrap: break-word; }
             .hero-desc { font-size: 0.85rem; margin-bottom: 25px; line-height: 1.5; text-align: left; }
-            
             .play-btn { font-size: 0.95rem; padding: 12px 35px; border-radius: 25px; } 
-
             .section-atas { margin-top: -40px; } 
             .thumbnail-section { padding: 10px 5% 30px 5%; }
             .thumbnail-section h3 { font-size: 1.1rem; margin-bottom: 15px; text-align: left; }
-            
             .thumbnail-section h3 span { display: block; margin-left: 0; margin-top: 5px; font-size: 0.75rem; } 
-            
-            /* Cover Video Mengecil */
-            .video-card { 
-                width: 110px; 
-                height: 65px; 
-                border-radius: 6px; 
-            } 
+            .video-card { width: 110px; height: 65px; border-radius: 6px; } 
             .row-geser { gap: 8px; padding-bottom: 10px; }
-
-            /* Galeri 3 Kolom */
             .masonry-gallery { column-count: 3; column-gap: 5px; } 
             .photo-box { margin-bottom: 5px; border-radius: 5px; } 
-            
             .modal-nav { font-size: 2rem; padding: 10px; }
             .left-nav { left: 5px; }
             .right-nav { right: 5px; }
@@ -207,14 +138,14 @@
 <body>
 
     <header class="nav-header">
-        <div class="logo"></div>
+        <div class="logo">AIPROHMAN</div>
         <a href="index.html" class="back-btn">&#8592; KEMBALI</a>
     </header>
 
     <section class="hero-showcase" id="main-display">
         <div class="hero-content">
             <div class="kategori-tag">WEDDING VIDEO</div>
-            <h1 class="hero-title" id="display-title">Wedding Highlights 1</h1>
+            <h1 class="hero-title" id="display-title">Wedding of Firly & Bima</h1>
             <p class="hero-desc" id="display-desc">Video dokumentasi utama dari momen sakral pernikahan ini.</p>
             <button class="play-btn" id="play-btn">&#9658; Play Now</button>
         </div>
@@ -222,40 +153,33 @@
 
     <section class="thumbnail-section section-atas">
         <h3>Video Documentation <span>(Geser &#8596;)</span></h3>
-        <div class="row-geser">
-            
-            <div class="video-card active" data-image="Galery-Foto/wedding/Foto-wedding-cover1.jpg" data-video="https://www.youtube.com/embed/gV6bi3FYxXw" data-title="Wedding of Firly & Bima" data-desc="Video dokumentasi utama dari momen sakral pernikahan ini.">
-                <img src="Galery-Foto/wedding/Foto-wedding-cover1.jpg" alt="Cover Video 1">
+        <div class="row-geser" id="thumb-container">
+            <div class="video-card active" data-image="wedding/Foto-wedding-cover1.jpg" data-video="https://www.youtube.com/embed/gV6bi3FYxXw" data-title="Wedding of Firly & Bima" data-desc="Video dokumentasi utama dari momen sakral pernikahan ini.">
+                <img src="wedding/Foto-wedding-cover1.jpg" alt="1">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/wedding/Foto-wedding-cover2.jpg" data-video="https://www.youtube.com/embed/ISI_ID_VIDEO_YOUTUBE_DISINI" data-title="Wedding of Rani & Wahab" data-desc="Momen haru saat prosesi akad nikah dan pemberkatan.">
-                <img src="Galery-Foto/wedding/Foto-wedding-cover2.jpg" alt="Cover Video 2">
+            <div class="video-card" data-image="wedding/Foto-wedding-cover2.jpg" data-video="https://www.youtube.com/embed/ISI_ID_VIDEO_YOUTUBE_DISINI" data-title="Wedding of Rani & Wahab" data-desc="Momen haru saat prosesi akad nikah dan pemberkatan.">
+                <img src="wedding/Foto-wedding-cover2.jpg" alt="2">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/wedding/Foto-wedding-cover3.jpg" data-video="https://www.youtube.com/embed/JYtyYSmp8tk" data-title="Wedding of Intan & Rizki" data-desc="Kemeriahan acara resepsi dan kebahagiaan bersama keluarga.">
-                <img src="Galery-Foto/wedding/Foto-wedding-cover3.jpg" alt="Cover Video 3">
+            <div class="video-card" data-image="wedding/Foto-wedding-cover3.jpg" data-video="https://www.youtube.com/embed/JYtyYSmp8tk" data-title="Wedding of Intan & Rizki" data-desc="Kemeriahan acara resepsi dan kebahagiaan bersama keluarga.">
+                <img src="wedding/Foto-wedding-cover3.jpg" alt="3">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/wedding/Foto-wedding-cover4.jpg" data-video="https://www.youtube.com/embed/ISI_ID_VIDEO_YOUTUBE_DISINI" data-title="Wedding of Lisna & Aji" data-desc="Sesi foto romantis dan momen kebersamaan kedua mempelai.">
-                <img src="Galery-Foto/wedding/Foto-wedding-cover4.jpg" alt="Cover Video 4">
+            <div class="video-card" data-image="wedding/Foto-wedding-cover4.jpg" data-video="https://www.youtube.com/embed/ISI_ID_VIDEO_YOUTUBE_DISINI" data-title="Wedding of Lisna & Aji" data-desc="Sesi foto romantis dan momen kebersamaan kedua mempelai.">
+                <img src="wedding/Foto-wedding-cover4.jpg" alt="4">
             </div>
-            
         </div>
     </section>
 
     <section class="thumbnail-section">
         <h3>Galeri Foto Wedding</h3>
         <div class="masonry-gallery">
-            
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding1.jpg" alt="Foto Wedding 1"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding2.jpg" alt="Foto Wedding 2"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding3.jpg" alt="Foto Wedding 3"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding4.jpg" alt="Foto Wedding 4"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding5.jpg" alt="Foto Wedding 5"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding6.jpg" alt="Foto Wedding 6"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding7.jpg" alt="Foto Wedding 7"></div>
-            <div class="photo-box"><img src="Galery-Foto/wedding/Foto-wedding8.jpg" alt="Foto Wedding 8"></div>
-            
+            <div class="photo-box"><img src="wedding/Foto-wedding1.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding2.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding3.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding4.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding5.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding6.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding7.jpg"></div>
+            <div class="photo-box"><img src="wedding/Foto-wedding8.jpg"></div>
         </div>
     </section>
 
@@ -269,188 +193,93 @@
     <div class="photo-modal" id="photo-modal">
         <span class="close-btn" id="close-photo-modal">&times;</span>
         <span class="modal-nav left-nav" id="prev-photo">&#10094;</span> 
-        <img src="" id="photo-modal-img" alt="Foto Diperbesar">
+        <img src="" id="photo-modal-img">
         <span class="modal-nav right-nav" id="next-photo">&#10095;</span> 
     </div>
 
     <script>
-        // 1. MESIN UNTUK SLIDER VIDEO YOUTUBE & HERO DISPLAY
         const mainDisplay = document.getElementById('main-display');
         const displayTitle = document.getElementById('display-title');
         const displayDesc = document.getElementById('display-desc');
         const videoCards = document.querySelectorAll('.video-card');
-        
         const playBtn = document.getElementById('play-btn');
         const videoModal = document.getElementById('video-modal');
         const closeVideoModalBtn = document.getElementById('close-video-modal');
         const player = document.getElementById('player');
 
-        // Link pertama agar tidak kosong
-        let currentVideoSrc = "https://www.youtube.com/embed/gV6bi3FYxXw";
         let currentVideoIndex = 0;
+        let currentVideoSrc = "https://www.youtube.com/embed/gV6bi3FYxXw";
         const totalVideos = videoCards.length;
 
-        // Fungsi pusat untuk mengganti video (Dipakai saat klik ATAU swipe)
         function gantiVideoUtama(index) {
             document.querySelector('.video-card.active').classList.remove('active');
             const cardBaru = videoCards[index];
             cardBaru.classList.add('active');
-
             mainDisplay.style.backgroundImage = `url('${cardBaru.getAttribute('data-image')}')`;
             displayTitle.textContent = cardBaru.getAttribute('data-title');
             displayDesc.textContent = cardBaru.getAttribute('data-desc');
             currentVideoSrc = cardBaru.getAttribute('data-video');
-
-            // Menggulir deretan thumbnail otomatis agar sinkron
             cardBaru.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
-        // Event saat kotak kecil (thumbnail) diklik
         videoCards.forEach((card, index) => {
             card.addEventListener('click', function() {
-                if (this.classList.contains('active')) return;
                 currentVideoIndex = index;
                 gantiVideoUtama(currentVideoIndex);
                 window.scrollTo({ top: 0, behavior: 'smooth' }); 
             });
         });
 
-        // MESIN BARU: SWIPE UNTUK GAMBAR UTAMA HERO (KHUSUS MOBILE)
-        let heroTouchStart = 0;
-        let heroTouchEnd = 0;
-
-        mainDisplay.addEventListener('touchstart', function(event) {
-            heroTouchStart = event.changedTouches[0].screenX;
-        }, {passive: true});
-
-        mainDisplay.addEventListener('touchend', function(event) {
-            heroTouchEnd = event.changedTouches[0].screenX;
-            handleHeroSwipe();
-        }, {passive: true});
-
-        function handleHeroSwipe() {
-            const jarakMinimal = 50;
-            const jarakGeser = heroTouchStart - heroTouchEnd;
-
+        // SWIPE HERO
+        let heroStart = 0;
+        mainDisplay.addEventListener('touchstart', e => heroStart = e.changedTouches[0].screenX, {passive: true});
+        mainDisplay.addEventListener('touchend', e => {
+            let jarak = heroStart - e.changedTouches[0].screenX;
             if (totalVideos > 1) {
-                if (jarakGeser > jarakMinimal) {
-                    // Geser ke Kiri (Next)
-                    currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
-                    gantiVideoUtama(currentVideoIndex);
-                } else if (jarakGeser < -jarakMinimal) {
-                    // Geser ke Kanan (Prev)
-                    currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
-                    gantiVideoUtama(currentVideoIndex);
-                }
+                if (jarak > 50) { currentVideoIndex = (currentVideoIndex + 1) % totalVideos; gantiVideoUtama(currentVideoIndex); }
+                else if (jarak < -50) { currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos; gantiVideoUtama(currentVideoIndex); }
             }
-        }
+        }, {passive: true});
 
-        // Memutar video YouTube saat klik Play
-        playBtn.addEventListener('click', () => {
-            if(currentVideoSrc) {
-                player.src = currentVideoSrc + "?autoplay=1"; 
-                videoModal.style.display = 'flex'; 
-            }
-        });
+        playBtn.addEventListener('click', () => { if(currentVideoSrc) { player.src = currentVideoSrc + "?autoplay=1"; videoModal.style.display = 'flex'; } });
+        closeVideoModalBtn.addEventListener('click', () => { videoModal.style.display = 'none'; player.src = ""; });
 
-        // Mematikan video YouTube saat ditutup
-        closeVideoModalBtn.addEventListener('click', () => {
-            videoModal.style.display = 'none';
-            player.src = ""; 
-        });
-
-        // 2. MESIN BARU UNTUK LIGHTBOX GALERI FOTO (BISA DIGESER < > )
-        const photoBoxes = document.querySelectorAll('.photo-box img'); 
+        // LIGHTBOX
         const photoModal = document.getElementById('photo-modal');
         const photoModalImg = document.getElementById('photo-modal-img');
-        const closePhotoModalBtn = document.getElementById('close-photo-modal');
-        
-        const prevBtn = document.getElementById('prev-photo');
-        const nextBtn = document.getElementById('next-photo');
-        
-        let currentPhotoIndex = 0; 
+        const photoBoxes = document.querySelectorAll('.photo-box img');
+        let currentPhotoIndex = 0;
 
-        // Membuka foto saat diklik dari grid
         photoBoxes.forEach((img, index) => {
-            img.parentElement.addEventListener('click', function() {
-                currentPhotoIndex = index; 
-                photoModalImg.src = img.src; 
-                photoModal.style.display = 'flex'; 
+            img.parentElement.addEventListener('click', () => {
+                currentPhotoIndex = index;
+                photoModalImg.src = img.src;
+                photoModal.style.display = 'flex';
             });
         });
 
-        // Fungsi khusus untuk mengganti gambar dengan efek transisi
         function gantiFoto(index) {
-            if (index < 0) {
-                currentPhotoIndex = photoBoxes.length - 1; 
-            } else if (index >= photoBoxes.length) {
-                currentPhotoIndex = 0; 
-            } else {
-                currentPhotoIndex = index;
-            }
-            
+            if (index < 0) currentPhotoIndex = photoBoxes.length - 1; 
+            else if (index >= photoBoxes.length) currentPhotoIndex = 0; 
+            else currentPhotoIndex = index;
             photoModalImg.style.opacity = 0.5;
-            setTimeout(() => {
-                photoModalImg.src = photoBoxes[currentPhotoIndex].src;
-                photoModalImg.style.opacity = 1;
-            }, 150);
+            setTimeout(() => { photoModalImg.src = photoBoxes[currentPhotoIndex].src; photoModalImg.style.opacity = 1; }, 150);
         }
 
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            gantiFoto(currentPhotoIndex + 1);
-        });
+        document.getElementById('prev-photo').addEventListener('click', (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex - 1); });
+        document.getElementById('next-photo').addEventListener('click', (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex + 1); });
+        document.getElementById('close-photo-modal').addEventListener('click', () => photoModal.style.display = 'none');
 
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            gantiFoto(currentPhotoIndex - 1);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (photoModal.style.display === 'flex') { 
-                if (e.key === 'ArrowRight') gantiFoto(currentPhotoIndex + 1);
-                if (e.key === 'ArrowLeft') gantiFoto(currentPhotoIndex - 1);
-                if (e.key === 'Escape') photoModal.style.display = 'none'; 
-            }
-        });
-
-        closePhotoModalBtn.addEventListener('click', () => {
-            photoModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if(e.target === videoModal) {
-                videoModal.style.display = 'none';
-                player.src = ""; // Matikan suara YouTube
-            }
-            if(e.target === photoModal) {
-                photoModal.style.display = 'none';
-            }
-        });
-
-        // 3. MESIN SENSOR GESER (SWIPE) UNTUK GALERI FOTO BAWAH
-        let sentuhanAwalFoto = 0;
-        let sentuhanAkhirFoto = 0;
-
-        photoModal.addEventListener('touchstart', function(event) {
-            sentuhanAwalFoto = event.changedTouches[0].screenX;
+        // SWIPE PHOTO
+        let photoStart = 0;
+        photoModal.addEventListener('touchstart', e => photoStart = e.changedTouches[0].screenX, {passive: true});
+        photoModal.addEventListener('touchend', e => {
+            let jarak = photoStart - e.changedTouches[0].screenX;
+            if (jarak > 50) gantiFoto(currentPhotoIndex + 1);
+            else if (jarak < -50) gantiFoto(currentPhotoIndex - 1);
         }, {passive: true});
 
-        photoModal.addEventListener('touchend', function(event) {
-            sentuhanAkhirFoto = event.changedTouches[0].screenX;
-            prosesGeserFoto();
-        }, {passive: true});
-
-        function prosesGeserFoto() {
-            const jarakMinimal = 50; 
-            const jarakGeser = sentuhanAwalFoto - sentuhanAkhirFoto;
-
-            if (jarakGeser > jarakMinimal) {
-                gantiFoto(currentPhotoIndex + 1);
-            } else if (jarakGeser < -jarakMinimal) {
-                gantiFoto(currentPhotoIndex - 1);
-            }
-        }
+        window.onclick = e => { if(e.target === videoModal || e.target === photoModal) { videoModal.style.display = 'none'; photoModal.style.display = 'none'; player.src = ""; } };
     </script>
 </body>
 </html>
