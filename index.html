@@ -48,7 +48,7 @@
         }
 
         .nav-bar { display: flex; justify-content: space-between; align-items: center; }
-        .logo-img { display: none; } /* Logo tersembunyi sesuai permintaan */
+        .logo-img { display: none; } 
 
         .menu { display: flex; gap: 30px; align-items: center; font-size: 0.8rem; font-weight: 700; }
         .menu a { color: white; text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
@@ -62,7 +62,6 @@
 
         .hero-center { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1; margin: 40px 0; }
         
-        /* Animasi Teks Utama */
         .teks-utama h2 { 
             font-size: 1.2rem; letter-spacing: 5px; margin-bottom: -10px; color: #eee; 
             opacity: 0; animation: munculKeAtas 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: 0.2s; 
@@ -98,7 +97,7 @@
             scroll-snap-align: center; border-radius: 12px;
             background-color: #333; background-size: cover; background-position: center; position: relative;
             text-decoration: none; transition: 0.4s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.6); 
-            opacity: 0.6; /* Default desktop agak redup */
+            opacity: 0.6; 
         }
         .carousel-item:hover { transform: scale(1.05); opacity: 1; z-index: 10; }
 
@@ -146,7 +145,6 @@
             .hero-section { padding: 0; min-height: auto; justify-content: flex-start; }
             .hero-center { margin-top: 100px; margin-bottom: 50px; }
              
-            /* Menghapus 'animation: none' agar efek desktop muncul di HP */
             .teks-utama h2 { font-size: 1rem; opacity: 0; animation: munculKeAtas 1.5s forwards; animation-delay: 0.2s; }
             .teks-utama h1 { font-size: 2.2rem; opacity: 0; animation: munculKeBawah 1.5s forwards; animation-delay: 0.2s; }
 
@@ -155,7 +153,6 @@
             
             .carousel-container { padding: 10px 5px; gap: 10px; }
 
-            /* --- FIX GAMBAR MOBILE: MEMAKSA MUNCUL --- */
             .carousel-item { 
                 width: 115px; 
                 height: 180px; 
@@ -163,7 +160,6 @@
                 opacity: 1 !important; 
                 visibility: visible !important;
                 display: block !important;
-                /* Tambahan Kunci: Memastikan background foto muncul */
                 background-size: cover !important;
                 background-position: center !important;
                 background-color: #333; 
@@ -207,15 +203,15 @@
             <div class="carousel-wrapper">
                 <div class="arrow" id="btn-kiri">&lt;</div>
                 <div class="carousel-container" id="galeri-geser">
-                <a href="event.html" id="card-event" class="carousel-item" style="background-image: url('Galery-Foto/event/Foto-cover1.jpg');"><div class="label-merah">EVENT</div></a>
-                <a href="corporate.html" id="card-corporate" class="carousel-item" style="background-image: url('Galery-Foto/corporate/Foto-corporate-cover1.jpg');"><div class="label-merah">CORPORATE</div></a>
-                <a href="sport.html" id="card-sport" class="carousel-item" style="background-image: url('Galery-Foto/sport/Foto-sport-cover1.jpg');"><div class="label-merah">SPORT</div></a>
-                <a href="competition.html" id="card-competition" class="carousel-item" style="background-image: url('Galery-Foto/competition/Foto-competition-cover1.jpg');"><div class="label-merah">COMPETITION</div></a>
-                <a href="birthday.html" id="card-birthday" class="carousel-item" style="background-image: url('Galery-Foto/birthday/Foto-birthday-cover1.jpg');"><div class="label-merah">BIRTHDAY</div></a>
-                <a href="wedding.html" id="card-wedding" class="carousel-item" style="background-image: url('Galery-Foto/wedding/Foto-wedding-cover1.jpg');"><div class="label-merah">WEDDING</div></a>
-                <a href="graduation.html" id="card-graduation" class="carousel-item" style="background-image: url('Galery-Foto/graduation/Foto-graduation-cover1.jpg');"><div class="label-merah">GRADUATION</div></a>
-                <a href="other.html" id="card-other" class="carousel-item" style="background-image: url('Galery-Foto/other/Foto-other-cover1.jpg');"><div class="label-merah">OTHER</div></a>
-                    </div>
+                    <a href="event.html" id="card-event" class="carousel-item" style="background-image: url('event/Foto-cover1.jpg');"><div class="label-merah">EVENT</div></a>
+                    <a href="corporate.html" id="card-corporate" class="carousel-item" style="background-image: url('corporate/Foto-corporate-cover1.jpg');"><div class="label-merah">CORPORATE</div></a>
+                    <a href="sport.html" id="card-sport" class="carousel-item" style="background-image: url('sport/Foto-sport-cover1.jpg');"><div class="label-merah">SPORT</div></a>
+                    <a href="competition.html" id="card-competition" class="carousel-item" style="background-image: url('competition/Foto-competition-cover1.jpg');"><div class="label-merah">COMPETITION</div></a>
+                    <a href="birthday.html" id="card-birthday" class="carousel-item" style="background-image: url('birthday/Foto-birthday-cover1.jpg');"><div class="label-merah">BIRTHDAY</div></a>
+                    <a href="wedding.html" id="card-wedding" class="carousel-item" style="background-image: url('wedding/Foto-wedding-cover1.jpg');"><div class="label-merah">WEDDING</div></a>
+                    <a href="graduation.html" id="card-graduation" class="carousel-item" style="background-image: url('graduation/Foto-graduation-cover1.jpg');"><div class="label-merah">GRADUATION</div></a>
+                    <a href="other.html" id="card-other" class="carousel-item" style="background-image: url('other/Foto-other-cover1.jpg');"><div class="label-merah">OTHER</div></a>
+                </div>
                 <div class="arrow" id="btn-kanan">&gt;</div>
             </div>
         </div>
@@ -262,23 +258,21 @@
     <script>
         const wadahGeser = document.getElementById('galeri-geser');
         
-        // Geser manual tetap berfungsi
         const tombolKiri = document.getElementById('btn-kiri');
         const tombolKanan = document.getElementById('btn-kanan');
         if(tombolKanan) tombolKanan.addEventListener('click', () => { wadahGeser.scrollBy({ left: 275, behavior: 'smooth' }); });
         if(tombolKiri) tombolKiri.addEventListener('click', () => { wadahGeser.scrollBy({ left: -275, behavior: 'smooth' }); });
 
-        // --- SLIDESHOW OTOMATIS: HANYA UNTUK DESKTOP ---
         if (window.innerWidth > 768) {
             const slideData = {
-                'card-event': ['Galery-Foto/event/Foto-cover1.jpg', 'Galery-Foto/event/Foto-cover2.jpg', 'Galery-Foto/event/Foto-cover3.jpg'],
-                'card-corporate': ['Galery-Foto/corporate/Foto-corporate-cover1.jpg', 'Galery-Foto/corporate/Foto-corporate-cover2.jpg', 'Galery-Foto/corporate/Foto-corporate-cover3.jpg'],
-                'card-sport': ['Galery-Foto/sport/Foto-sport-cover1.jpg', 'Galery-Foto/sport/Foto-sport-cover2.jpg', 'Galery-Foto/sport/Foto-sport-cover3.jpg'],
-                'card-competition': ['Galery-Foto/competition/Foto-competition-cover1.jpg', 'Galery-Foto/competition/Foto-competition-cover2.jpg', 'Galery-Foto/competition/Foto-competition-cover3.jpg'],
-                'card-birthday': ['Galery-Foto/birthday/Foto-birthday-cover1.jpg', 'Galery-Foto/birthday/Foto-birthday-cover2.jpg', 'Galery-Foto/birthday/Foto-birthday-cover3.jpg'],
-                'card-wedding': ['Galery-Foto/wedding/Foto-wedding-cover1.jpg', 'Galery-Foto/wedding/Foto-wedding-cover2.jpg', 'Galery-Foto/wedding/Foto-wedding-cover3.jpg'],
-                'card-graduation': ['Galery-Foto/graduation/Foto-graduation-cover1.jpg', 'Galery-Foto/graduation/Foto-graduation-cover2.jpg', 'Galery-Foto/graduation/Foto-graduation-cover3.jpg'],
-                'card-other': ['Galery-Foto/other/Foto-other-cover1.jpg', 'Galery-Foto/other/Foto-other-cover2.jpg', 'Galery-Foto/other/Foto-other-cover3.jpg']
+                'card-event': ['event/Foto-cover1.jpg', 'event/Foto-cover2.jpg', 'event/Foto-cover3.jpg'],
+                'card-corporate': ['corporate/Foto-corporate-cover1.jpg', 'corporate/Foto-corporate-cover2.jpg', 'corporate/Foto-corporate-cover3.jpg'],
+                'card-sport': ['sport/Foto-sport-cover1.jpg', 'sport/Foto-sport-cover2.jpg', 'sport/Foto-sport-cover3.jpg'],
+                'card-competition': ['competition/Foto-competition-cover1.jpg', 'competition/Foto-competition-cover2.jpg', 'competition/Foto-competition-cover3.jpg'],
+                'card-birthday': ['birthday/Foto-birthday-cover1.jpg', 'birthday/Foto-birthday-cover2.jpg', 'birthday/Foto-birthday-cover3.jpg'],
+                'card-wedding': ['wedding/Foto-wedding-cover1.jpg', 'wedding/Foto-wedding-cover2.jpg', 'wedding/Foto-wedding-cover3.jpg'],
+                'card-graduation': ['graduation/Foto-graduation-cover1.jpg', 'graduation/Foto-graduation-cover2.jpg', 'graduation/Foto-graduation-cover3.jpg'],
+                'card-other': ['other/Foto-other-cover1.jpg', 'other/Foto-other-cover2.jpg', 'other/Foto-other-cover3.jpg']
             };
 
             const slideIndex = {
@@ -296,7 +290,6 @@
                 }
             }, 3000); 
         }
-    </script>
     </script>
 </body>
 </html>
