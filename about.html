@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - M. Arief Rohman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- PENGATURAN DASAR --- */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #12181b; 
+            color: white;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+
+        /* --- NAVIGASI MELAYANG --- */
+        .nav-header {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent; 
+            border: none; 
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 2px; }
+        .menu { display: flex; gap: 30px; align-items: center; font-size: 0.8rem; font-weight: 700; }
+        .menu a { color: white; text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+        .menu a:hover { color: #d92027; }
+        .btn-merah { background-color: #d92027; padding: 10px 25px; border-radius: 20px; color: white !important; font-weight: 800; }
+        .btn-merah:hover { background-color: #a7181d; transform: scale(1.05); }
+
+        /* --- BAGIAN TENTANG SAYA (ABOUT AREA) --- */
+        .about-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 60px auto; 
+            padding: 0 5%;
+            gap: 80px;
+            flex-grow: 1; 
+        }
+
+        /* Teks Sebelah Kiri */
+        .about-text {
+            flex: 1;
+        }
+        .about-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .about-text .garis {
+            width: 80px;
+            height: 4px;
+            background-color: #d92027;
+            margin-bottom: 30px;
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        /* Daftar Kontak */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-list li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .contact-list i {
+            font-size: 1.8rem;
+            color: #d92027; 
+            width: 30px;
+            text-align: center;
+        }
+
+        /* --- FOTO BINGKAI PROFESIONAL (MODERN OFFSET BORDER) --- */
+        .about-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modern-frame {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Gambar Utama */
+        .modern-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: transform 0.4s ease;
+        }
+
+        /* Bingkai Merah di Belakang */
+        .modern-frame::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: -25px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #d92027;
+            border-radius: 12px;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+
+        /* Efek Hover Keren */
+        .modern-frame:hover img {
+            transform: translate(5px, -5px);
+        }
+        .modern-frame:hover::after {
+            transform: translate(10px, 10px);
+        }
+
+        /* --- PENGATURAN KHUSUS HP --- */
+        @media (max-width: 768px) {
+            .nav-header { 
+                padding: 20px 5%; 
+                flex-direction: column; 
+                align-items: center;
+                gap: 15px; 
+            }
+            .logo { display: none; }
+            .menu { 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 10px 20px; 
+                align-items: center; 
+                width: 100%;
+                font-size: 0.8rem; 
+            }
+            
+            .menu a.btn-merah { display: none !important; }
+            
+            .about-container { 
+                flex-direction: column-reverse; 
+                margin: 25px auto 50px auto; 
+                text-align: center; 
+                gap: 25px; 
+            }
+            
+            .about-text h1 { 
+                font-size: 1.6rem; 
+                line-height: 1.2;
+                letter-spacing: 1px;
+                white-space: nowrap; 
+            }
+            .about-text .garis { margin: 0 auto 20px auto; width: 60px; }
+            
+            .about-text p { 
+                text-align: justify; 
+                font-size: 0.9rem; 
+                line-height: 1.6;
+                padding: 0 15px; 
+                margin-bottom: 10px; /* Sedikit dirapatkan ke bawah */
+            }
+            
+            /* --- KUNCI: DAFTAR KONTAK DIHILANGKAN DI HP --- */
+            .contact-list { 
+                display: none; 
+            }
+            
+            .modern-frame { max-width: 180px; } 
+            .modern-frame::after { top: 10px; left: -10px; border-width: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav-header">
+        <div class="logo"></div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html" style="border-bottom: 2px solid #d92027; padding-bottom: 5px;">About</a>
+            <a href="halaman-kedua.html">Project</a>
+            <a href="index.html#contact-area">Contact</a>
+            <a href="index.html#portofolio-area" class="btn-merah">EXPLORE</a>
+        </div>
+    </header>
+
+    <section class="about-container">
+        
+        <div class="about-text">
+            <h1>M. Arief Rohman</h1>
+            <div class="garis"></div>
+            
+            <p>
+                I am a professional photographer, videographer, editor, and drone pilot with a deep passion for visual art. With years of experience in this industry, I have successfully created works that inspire and convey powerful messages through images and videos. My dedication to aesthetic beauty and technological innovation allows me to constantly seek new ways to capture precious moments in every project I undertake.
+            </p>
+
+            <ul class="contact-list">
+                <li><i class="fa-brands fa-instagram"></i> @aip_rohman</li>
+                <li><i class="fa-solid fa-phone"></i> +62 896 6503 2313</li>
+                <li><i class="fa-regular fa-envelope"></i> mariefrohman.9a@gmail.com</li>
+            </ul>
+        </div>
+
+        <div class="about-image-wrapper">
+            <div class="modern-frame">
+                <img src="foto-arief.jpg" alt="M. Arief Rohman">
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
