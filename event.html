@@ -32,7 +32,7 @@
             height: 75vh; background-size: cover; background-position: center;
             position: relative; display: flex; align-items: flex-end; padding: 50px 5%;
             transition: background-image 0.3s ease-in-out; 
-            background-image: url('Galery-Foto/event/Foto-cover1.jpg'); 
+            background-image: url('event/Foto-cover1.jpg'); 
         }
         .hero-showcase::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -102,7 +102,6 @@
         }
         .video-content { width: 90%; max-width: 1000px; position: relative; }
         
-        /* Iframe untuk YouTube */
         #player {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -139,9 +138,6 @@
         }
         .close-btn:hover { color: #d92027; }
 
-        /* ========================================================
-           PENGATURAN KHUSUS HP & TABLET (TAMPILAN PROFESIONAL)
-           ======================================================== */
         @media (max-width: 1024px) {
             .masonry-gallery { column-count: 3; } 
         }
@@ -149,53 +145,20 @@
         @media (max-width: 768px) {
             .nav-header { padding: 15px 5%; }
             .logo { font-size: 1.2rem; }
-
-            .hero-showcase { 
-                height: 60vh; 
-                padding-bottom: 50px; 
-                justify-content: flex-start; 
-            }
-            .hero-content { 
-                text-align: left; 
-                display: flex; 
-                flex-direction: column; 
-                align-items: flex-start; 
-                width: 100%;
-            }
-            
+            .hero-showcase { height: 60vh; padding-bottom: 50px; justify-content: flex-start; }
+            .hero-content { text-align: left; display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
             .kategori-tag { font-size: 0.65rem; padding: 5px 15px; margin-bottom: 12px; }
-            
-            .hero-title { 
-                font-size: 1.6rem; 
-                line-height: 1.2;  
-                margin-bottom: 12px;
-                text-align: left; 
-                word-wrap: break-word; 
-                overflow-wrap: break-word; 
-            }
+            .hero-title { font-size: 1.6rem; line-height: 1.2; margin-bottom: 12px; text-align: left; word-wrap: break-word; overflow-wrap: break-word; }
             .hero-desc { font-size: 0.85rem; margin-bottom: 25px; line-height: 1.5; text-align: left; }
-            
             .play-btn { font-size: 0.95rem; padding: 12px 35px; border-radius: 25px; } 
-
             .section-atas { margin-top: -40px; } 
             .thumbnail-section { padding: 10px 5% 30px 5%; }
             .thumbnail-section h3 { font-size: 1.1rem; margin-bottom: 15px; text-align: left; }
-            
             .thumbnail-section h3 span { display: block; margin-left: 0; margin-top: 5px; font-size: 0.75rem; } 
-            
-            .video-card { 
-                width: 110px; 
-                height: 65px; 
-                border-radius: 6px; 
-            } 
-            .row-geser { 
-                gap: 8px; 
-                padding-bottom: 10px; 
-            }
-
+            .video-card { width: 110px; height: 65px; border-radius: 6px; } 
+            .row-geser { gap: 8px; padding-bottom: 10px; }
             .masonry-gallery { column-count: 3; column-gap: 5px; } 
             .photo-box { margin-bottom: 5px; border-radius: 5px; } 
-            
             .modal-nav { font-size: 2rem; padding: 10px; }
             .left-nav { left: 5px; }
             .right-nav { right: 5px; }
@@ -207,15 +170,15 @@
 <body>
 
     <header class="nav-header">
-        <div class="logo"></div>
+        <div class="logo">AIPROHMAN</div>
         <a href="index.html" class="back-btn">&#8592; KEMBALI</a>
     </header>
 
     <section class="hero-showcase" id="main-display">
         <div class="hero-content">
             <div class="kategori-tag">EVENT VIDEO</div>
-            <h1 class="hero-title" id="display-title">Event Highlights 1</h1>
-            <p class="hero-desc" id="display-desc">Video dokumentasi utama dari acara event ini.</p>
+            <h1 class="hero-title" id="display-title">Mountain & Jungle Course 2022</h1>
+            <p class="hero-desc" id="display-desc">Event Eiger Adventure di Kawasan Taman Nasional Gn. Ciremai</p>
             <button class="play-btn" id="play-btn">&#9658; Play Now</button>
         </div>
     </section>
@@ -223,83 +186,77 @@
     <section class="thumbnail-section section-atas">
         <h3>Video Documentation <span>(Geser &#8596;)</span></h3>
         <div class="row-geser" id="thumb-container">
-            
-            <div class="video-card active" data-image="Galery-Foto/event/Foto-cover1.jpg" data-video="https://www.youtube.com/embed/FbiLaV9gLls" data-title="Mountain & Jungle Course 2022" data-desc="Event Eiger Adventure di Kawasan Taman Nasional Gn. Ciremai">
-                <img src="Galery-Foto/event/Foto-cover1.jpg" alt="Cover Video 1">
+            <div class="video-card active" data-image="event/Foto-cover1.jpg" data-video="https://www.youtube.com/embed/FbiLaV9gLls" data-title="Mountain & Jungle Course 2022" data-desc="Event Eiger Adventure di Kawasan Taman Nasional Gn. Ciremai">
+                <img src="event/Foto-cover1.jpg" alt="Cover Video 1">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover2.jpg" data-video="https://www.youtube.com/embed/diQdijdLxcM" data-title="Women Adventure Camp 2024" data-desc="Event Eiger Adventure khusus Wanita di Kawasan Gn. Kembang">
-                <img src="Galery-Foto/event/Foto-cover2.jpg" alt="Cover Video 2">
+            <div class="video-card" data-image="event/Foto-cover2.jpg" data-video="https://www.youtube.com/embed/diQdijdLxcM" data-title="Women Adventure Camp 2024" data-desc="Event Eiger Adventure khusus Wanita di Kawasan Gn. Kembang">
+                <img src="event/Foto-cover2.jpg" alt="Cover Video 2">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover3.jpg" data-video="https://www.youtube.com/embed/0Qri9AotpfY" data-title="Mountain & Jungle Course 2024" data-desc="Event Eiger Adventure di Kawasan Taman Nasional Gn. Rinjani">
-                <img src="Galery-Foto/event/Foto-cover3.jpg" alt="Cover Video 3">
+            <div class="video-card" data-image="event/Foto-cover3.jpg" data-video="https://www.youtube.com/embed/0Qri9AotpfY" data-title="Mountain & Jungle Course 2024" data-desc="Event Eiger Adventure di Kawasan Taman Nasional Gn. Rinjani">
+                <img src="event/Foto-cover3.jpg" alt="Cover Video 3">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover4.jpg" data-video="https://www.youtube.com/embed/paEJnYeej_8" data-title="Women Jungle Survival Course 2025" data-desc="Event Eiger Adventure khusus Wanita di Kawasan Gn. Kembang">
-                <img src="Galery-Foto/event/Foto-cover4.jpg" alt="Cover Video 4">
+            <div class="video-card" data-image="event/Foto-cover4.jpg" data-video="https://www.youtube.com/embed/paEJnYeej_8" data-title="Women Jungle Survival Course 2025" data-desc="Event Eiger Adventure khusus Wanita di Kawasan Gn. Kembang">
+                <img src="event/Foto-cover4.jpg" alt="Cover Video 4">
             </div>
-            
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover5.jpg" data-video="https://www.youtube.com/embed/pJjVvQrmKsc" data-title="Sahabat Perjalanmu_Bogor" data-desc="Event Sahabat Perjalanmu by blibli tentang Jelajah Kopi Bogor">
-                <img src="Galery-Foto/event/Foto-cover5.jpg" alt="Cover Video 5">
+            <div class="video-card" data-image="event/Foto-cover5.jpg" data-video="https://www.youtube.com/embed/pJjVvQrmKsc" data-title="Sahabat Perjalanmu_Bogor" data-desc="Event Sahabat Perjalanmu by blibli tentang Jelajah Kopi Bogor">
+                <img src="event/Foto-cover5.jpg" alt="Cover Video 5">
             </div>
-
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover6.jpg" data-video="https://www.youtube.com/embed/uJUlFiG528M" data-title="Sahabat Perjalanmu_Bali" data-desc="Event Sahabat Perjalanmu by blibli tentang Trip Bali">
-                <img src="Galery-Foto/event/Foto-cover6.jpg" alt="Cover Video 6">
+            <div class="video-card" data-image="event/Foto-cover6.jpg" data-video="https://www.youtube.com/embed/uJUlFiG528M" data-title="Sahabat Perjalanmu_Bali" data-desc="Event Sahabat Perjalanmu by blibli tentang Trip Bali">
+                <img src="event/Foto-cover6.jpg" alt="Cover Video 6">
             </div>
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover7.jpg" data-video="https://www.youtube.com/embed/3VuX97780gE" data-title="Sahabat Perjalanmu_Jakarta" data-desc="Event Sahabat Perjalanmu by blibli tentang Jelajah Rasa Betawi">
-                <img src="Galery-Foto/event/Foto-cover7.jpg" alt="Cover Video 7">
+            <div class="video-card" data-image="event/Foto-cover7.jpg" data-video="https://www.youtube.com/embed/3VuX97780gE" data-title="Sahabat Perjalanmu_Jakarta" data-desc="Event Sahabat Perjalanmu by blibli tentang Jelajah Rasa Betawi">
+                <img src="event/Foto-cover7.jpg" alt="Cover Video 7">
             </div>
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover8.jpg" data-video="https://www.youtube.com/embed/0yH5OJX_FKc" data-title="Reuni FE Universitas Indonesia" data-desc="Reuni Fakultas Ekonomi Universitas Indonesia">
-                <img src="Galery-Foto/event/Foto-cover8.jpg" alt="Cover Video 8">
+            <div class="video-card" data-image="event/Foto-cover8.jpg" data-video="https://www.youtube.com/embed/0yH5OJX_FKc" data-title="Reuni FE Universitas Indonesia" data-desc="Reuni Fakultas Ekonomi Universitas Indonesia">
+                <img src="event/Foto-cover8.jpg" alt="Cover Video 8">
             </div>
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover9.jpg" data-video="https://www.youtube.com/embed/LxxivoDgkM0" data-title="Bromen Jelajah Indonesia" data-desc="Event Kaloborasi bersama Bromen ke Taman Nasional Gunung Rinjani">
-                <img src="Galery-Foto/event/Foto-cover9.jpg" alt="Cover Video 9">
+            <div class="video-card" data-image="event/Foto-cover9.jpg" data-video="https://www.youtube.com/embed/LxxivoDgkM0" data-title="Bromen Jelajah Indonesia" data-desc="Event Kaloborasi bersama Bromen ke Taman Nasional Gunung Rinjani">
+                <img src="event/Foto-cover9.jpg" alt="Cover Video 9">
             </div>
-            <div class="video-card" data-image="Galery-Foto/event/Foto-cover10.jpg" data-video="https://www.youtube.com/embed/Q20uDjx0DIc" data-title="QRIS Jelajah Indonesia" data-desc="Event Bank Indonesia Jakarta bersama para kreator untuk mempromosikan penggunaan QRIS">
-                <img src="Galery-Foto/event/Foto-cover10.jpg" alt="Cover Video 10">
+            <div class="video-card" data-image="event/Foto-cover10.jpg" data-video="https://www.youtube.com/embed/Q20uDjx0DIc" data-title="QRIS Jelajah Indonesia" data-desc="Event Bank Indonesia Jakarta bersama para kreator untuk mempromosikan penggunaan QRIS">
+                <img src="event/Foto-cover10.jpg" alt="Cover Video 10">
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="thumbnail-section">
         <h3>Galeri Foto Kegiatan</h3>
         <div class="masonry-gallery">
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event1.jpg" alt="Foto Event 1"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event2.jpg" alt="Foto Event 2"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event3.jpg" alt="Foto Event 3"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event4.jpg" alt="Foto Event 4"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event5.jpg" alt="Foto Event 5"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event6.jpg" alt="Foto Event 6"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event7.jpg" alt="Foto Event 7"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event8.jpg" alt="Foto Event 8"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event9.jpg" alt="Foto Event 9"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event10.jpg" alt="Foto Event 10"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event11.jpg" alt="Foto Event 11"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event12.jpg" alt="Foto Event 12"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event13.jpg" alt="Foto Event 13"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event14.jpg" alt="Foto Event 14"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event15.jpg" alt="Foto Event 15"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event16.jpg" alt="Foto Event 16"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event17.jpg" alt="Foto Event 17"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event18.jpg" alt="Foto Event 18"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event19.jpg" alt="Foto Event 19"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event20.jpg" alt="Foto Event 20"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event21.jpg" alt="Foto Event 21"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event22.jpg" alt="Foto Event 22"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event23.jpg" alt="Foto Event 23"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event24.jpg" alt="Foto Event 24"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event25.jpg" alt="Foto Event 25"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event26.jpg" alt="Foto Event 26"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event27.jpg" alt="Foto Event 27"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event28.jpg" alt="Foto Event 28"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event29.jpg" alt="Foto Event 29"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event30.jpg" alt="Foto Event 30"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event31.jpg" alt="Foto Event 31"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event32.jpg" alt="Foto Event 32"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event33.jpg" alt="Foto Event 33"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event34.jpg" alt="Foto Event 34"></div>
-            <div class="photo-box"><img src="Galery-Foto/event/Foto-event35.jpg" alt="Foto Event 35"></div>
+            <div class="photo-box"><img src="event/Foto-event1.jpg" alt="Foto Event 1"></div>
+            <div class="photo-box"><img src="event/Foto-event2.jpg" alt="Foto Event 2"></div>
+            <div class="photo-box"><img src="event/Foto-event3.jpg" alt="Foto Event 3"></div>
+            <div class="photo-box"><img src="event/Foto-event4.jpg" alt="Foto Event 4"></div>
+            <div class="photo-box"><img src="event/Foto-event5.jpg" alt="Foto Event 5"></div>
+            <div class="photo-box"><img src="event/Foto-event6.jpg" alt="Foto Event 6"></div>
+            <div class="photo-box"><img src="event/Foto-event7.jpg" alt="Foto Event 7"></div>
+            <div class="photo-box"><img src="event/Foto-event8.jpg" alt="Foto Event 8"></div>
+            <div class="photo-box"><img src="event/Foto-event9.jpg" alt="Foto Event 9"></div>
+            <div class="photo-box"><img src="event/Foto-event10.jpg" alt="Foto Event 10"></div>
+            <div class="photo-box"><img src="event/Foto-event11.jpg" alt="Foto Event 11"></div>
+            <div class="photo-box"><img src="event/Foto-event12.jpg" alt="Foto Event 12"></div>
+            <div class="photo-box"><img src="event/Foto-event13.jpg" alt="Foto Event 13"></div>
+            <div class="photo-box"><img src="event/Foto-event14.jpg" alt="Foto Event 14"></div>
+            <div class="photo-box"><img src="event/Foto-event15.jpg" alt="Foto Event 15"></div>
+            <div class="photo-box"><img src="event/Foto-event16.jpg" alt="Foto Event 16"></div>
+            <div class="photo-box"><img src="event/Foto-event17.jpg" alt="Foto Event 17"></div>
+            <div class="photo-box"><img src="event/Foto-event18.jpg" alt="Foto Event 18"></div>
+            <div class="photo-box"><img src="event/Foto-event19.jpg" alt="Foto Event 19"></div>
+            <div class="photo-box"><img src="event/Foto-event20.jpg" alt="Foto Event 20"></div>
+            <div class="photo-box"><img src="event/Foto-event21.jpg" alt="Foto Event 21"></div>
+            <div class="photo-box"><img src="event/Foto-event22.jpg" alt="Foto Event 22"></div>
+            <div class="photo-box"><img src="event/Foto-event23.jpg" alt="Foto Event 23"></div>
+            <div class="photo-box"><img src="event/Foto-event24.jpg" alt="Foto Event 24"></div>
+            <div class="photo-box"><img src="event/Foto-event25.jpg" alt="Foto Event 25"></div>
+            <div class="photo-box"><img src="event/Foto-event26.jpg" alt="Foto Event 26"></div>
+            <div class="photo-box"><img src="event/Foto-event27.jpg" alt="Foto Event 27"></div>
+            <div class="photo-box"><img src="event/Foto-event28.jpg" alt="Foto Event 28"></div>
+            <div class="photo-box"><img src="event/Foto-event29.jpg" alt="Foto Event 29"></div>
+            <div class="photo-box"><img src="event/Foto-event30.jpg" alt="Foto Event 30"></div>
+            <div class="photo-box"><img src="event/Foto-event31.jpg" alt="Foto Event 31"></div>
+            <div class="photo-box"><img src="event/Foto-event32.jpg" alt="Foto Event 32"></div>
+            <div class="photo-box"><img src="event/Foto-event33.jpg" alt="Foto Event 33"></div>
+            <div class="photo-box"><img src="event/Foto-event34.jpg" alt="Foto Event 34"></div>
+            <div class="photo-box"><img src="event/Foto-event35.jpg" alt="Foto Event 35"></div>
         </div>
     </section>
 
@@ -318,12 +275,10 @@
     </div>
 
     <script>
-        // 1. MESIN UNTUK SLIDER VIDEO YOUTUBE & HERO DISPLAY
         const mainDisplay = document.getElementById('main-display');
         const displayTitle = document.getElementById('display-title');
         const displayDesc = document.getElementById('display-desc');
         const videoCards = document.querySelectorAll('.video-card');
-        
         const playBtn = document.getElementById('play-btn');
         const videoModal = document.getElementById('video-modal');
         const closeVideoModalBtn = document.getElementById('close-video-modal');
@@ -333,60 +288,26 @@
         let currentVideoIndex = 0;
         const totalVideos = videoCards.length;
 
-        // Fungsi pusat untuk mengganti video (Dipakai saat klik ATAU swipe)
         function gantiVideoUtama(index) {
             document.querySelector('.video-card.active').classList.remove('active');
             const cardBaru = videoCards[index];
             cardBaru.classList.add('active');
-
             mainDisplay.style.backgroundImage = `url('${cardBaru.getAttribute('data-image')}')`;
             displayTitle.textContent = cardBaru.getAttribute('data-title');
             displayDesc.textContent = cardBaru.getAttribute('data-desc');
             currentVideoSrc = cardBaru.getAttribute('data-video');
-
-            // Menggulir deretan thumbnail otomatis agar sinkron
             cardBaru.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
-        // Event saat kotak kecil (thumbnail) diklik
         videoCards.forEach((card, index) => {
             card.addEventListener('click', function() {
                 if (this.classList.contains('active')) return;
                 currentVideoIndex = index;
                 gantiVideoUtama(currentVideoIndex);
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // Naik ke atas saat diklik
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
-        // MESIN BARU: SWIPE UNTUK GAMBAR UTAMA HERO (KHUSUS MOBILE)
-        let heroTouchStart = 0;
-        let heroTouchEnd = 0;
-
-        mainDisplay.addEventListener('touchstart', function(event) {
-            heroTouchStart = event.changedTouches[0].screenX;
-        }, {passive: true});
-
-        mainDisplay.addEventListener('touchend', function(event) {
-            heroTouchEnd = event.changedTouches[0].screenX;
-            handleHeroSwipe();
-        }, {passive: true});
-
-        function handleHeroSwipe() {
-            const jarakMinimal = 50;
-            const jarakGeser = heroTouchStart - heroTouchEnd;
-
-            if (jarakGeser > jarakMinimal) {
-                // Geser ke Kiri (Next)
-                currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
-                gantiVideoUtama(currentVideoIndex);
-            } else if (jarakGeser < -jarakMinimal) {
-                // Geser ke Kanan (Prev)
-                currentVideoIndex = (currentVideoIndex - 1 + totalVideos) % totalVideos;
-                gantiVideoUtama(currentVideoIndex);
-            }
-        }
-
-        // Memutar video YouTube saat klik Play
         playBtn.addEventListener('click', () => {
             if(currentVideoSrc) {
                 player.src = currentVideoSrc + "?autoplay=1"; 
@@ -394,13 +315,11 @@
             }
         });
 
-        // Mematikan video YouTube saat ditutup
         closeVideoModalBtn.addEventListener('click', () => {
             videoModal.style.display = 'none';
             player.src = ""; 
         });
 
-        // 2. MESIN UNTUK LIGHTBOX GALERI FOTO BAWAH
         const photoBoxes = document.querySelectorAll('.photo-box img'); 
         const photoModal = document.getElementById('photo-modal');
         const photoModalImg = document.getElementById('photo-modal-img');
@@ -419,77 +338,21 @@
         });
 
         function gantiFoto(index) {
-            if (index < 0) {
-                currentPhotoIndex = photoBoxes.length - 1; 
-            } else if (index >= photoBoxes.length) {
-                currentPhotoIndex = 0; 
-            } else {
-                currentPhotoIndex = index;
-            }
+            if (index < 0) currentPhotoIndex = photoBoxes.length - 1; 
+            else if (index >= photoBoxes.length) currentPhotoIndex = 0; 
+            else currentPhotoIndex = index;
             
-            photoModalImg.style.opacity = 0.5;
-            setTimeout(() => {
-                photoModalImg.src = photoBoxes[currentPhotoIndex].src;
-                photoModalImg.style.opacity = 1;
-            }, 150);
+            photoModalImg.src = photoBoxes[currentPhotoIndex].src;
         }
 
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            gantiFoto(currentPhotoIndex + 1);
-        });
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex + 1); });
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); gantiFoto(currentPhotoIndex - 1); });
+        closePhotoModalBtn.addEventListener('click', () => { photoModal.style.display = 'none'; });
 
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); 
-            gantiFoto(currentPhotoIndex - 1);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (photoModal.style.display === 'flex') { 
-                if (e.key === 'ArrowRight') gantiFoto(currentPhotoIndex + 1);
-                if (e.key === 'ArrowLeft') gantiFoto(currentPhotoIndex - 1);
-                if (e.key === 'Escape') photoModal.style.display = 'none'; 
-            }
-        });
-
-        closePhotoModalBtn.addEventListener('click', () => {
-            photoModal.style.display = 'none';
-        });
-
-        // Menutup popup saat klik area kosong
         window.addEventListener('click', (e) => {
-            if(e.target === videoModal) {
-                videoModal.style.display = 'none';
-                player.src = ""; 
-            }
-            if(e.target === photoModal) {
-                photoModal.style.display = 'none';
-            }
+            if(e.target === videoModal) { videoModal.style.display = 'none'; player.src = ""; }
+            if(e.target === photoModal) { photoModal.style.display = 'none'; }
         });
-
-        // MESIN SENSOR GESER (SWIPE) UNTUK GALERI FOTO BAWAH
-        let sentuhanAwal = 0;
-        let sentuhanAkhir = 0;
-
-        photoModal.addEventListener('touchstart', function(event) {
-            sentuhanAwal = event.changedTouches[0].screenX;
-        }, {passive: true});
-
-        photoModal.addEventListener('touchend', function(event) {
-            sentuhanAkhir = event.changedTouches[0].screenX;
-            prosesGeserFoto();
-        }, {passive: true});
-
-        function prosesGeserFoto() {
-            const jarakMinimal = 50; 
-            const jarakGeser = sentuhanAwal - sentuhanAkhir;
-
-            if (jarakGeser > jarakMinimal) {
-                gantiFoto(currentPhotoIndex + 1);
-            } else if (jarakGeser < -jarakMinimal) {
-                gantiFoto(currentPhotoIndex - 1);
-            }
-        }
     </script>
 </body>
 </html>
