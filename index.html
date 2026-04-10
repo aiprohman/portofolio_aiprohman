@@ -45,9 +45,21 @@
         .btn-merah { background-color: #d92027; padding: 10px 25px; border-radius: 20px; color: white !important; font-weight: 800; text-decoration: none; transition: 0.3s; }
         .btn-merah:hover { background-color: #a7181d; transform: scale(1.05); }
 
+        /* --- LOGIKA ANIMASI TULISAN UTAMA --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .hero-center { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1; margin: 40px 0; }
-        .teks-utama h2 { font-size: 1.2rem; letter-spacing: 5px; margin-bottom: -10px; color: #eee; }
-        .teks-utama h1 { font-size: 6.5rem; font-weight: 800; margin: 0; letter-spacing: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .teks-utama h2 { 
+            font-size: 1.2rem; letter-spacing: 5px; margin-bottom: -10px; color: #eee; 
+            animation: fadeInUp 1s ease-out forwards; opacity: 0;
+        }
+        .teks-utama h1 { 
+            font-size: 6.5rem; font-weight: 800; margin: 0; letter-spacing: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            animation: fadeInUp 1.2s ease-out forwards; animation-delay: 0.3s; opacity: 0;
+        }
 
         /* --- REVIEW PHOTO / CAROUSEL --- */
         .review-section { text-align: center; padding: 0 20px; background: transparent; position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
@@ -73,7 +85,7 @@
         .sosmed-link a { color: #888; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
         .sosmed-link a:hover { color: #d92027; }
 
-        /* --- MEDIA QUERY MOBILE (GUE JAGAIN BIAR GAK BERUBAH) --- */
+        /* --- MEDIA QUERY MOBILE --- */
         @media (max-width: 768px) {
             .nav-bar { padding: 20px 5% 10px 5%; flex-direction: column; align-items: center; }
             .menu { flex-wrap: wrap; justify-content: center; gap: 15px 20px; font-size: 0.8rem; width: 100%; }
@@ -91,7 +103,6 @@
             .label-merah { font-size: 0.55rem; padding: 4px 8px; top: 10px; }
             .arrow { font-size: 1.2rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.1); }
 
-            /* Jarak rapat khusus di mobile biar satu layar pas diklik Contact */
             .contact-section { padding: 40px 5% 60px 5%; }
             .logo-perusahaan { gap: 15px; margin-bottom: 40px !important; }
             .logo-perusahaan img { width: 85px; height: 40px; } 
@@ -175,7 +186,6 @@
         if(tombolKanan) tombolKanan.addEventListener('click', () => { wadahGeser.scrollBy({ left: 275, behavior: 'smooth' }); });
         if(tombolKiri) tombolKiri.addEventListener('click', () => { wadahGeser.scrollBy({ left: -275, behavior: 'smooth' }); });
 
-        // MESIN SLIDE DESKTOP (JAMINAN GAK BAKAL HILANG LAGI)
         if (window.innerWidth > 768) {
             const slideData = {
                 'card-event': ['event/Foto-cover1.jpg', 'event/Foto-cover2.jpg', 'event/Foto-cover3.jpg'],
@@ -199,7 +209,6 @@
             }, 3000); 
         }
 
-        // FUNGSI SCROLL TENGAH LAYAR UNTUK MOBILE
         function keContact() {
             const element = document.getElementById("target-kontak");
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
